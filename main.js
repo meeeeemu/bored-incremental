@@ -38,7 +38,7 @@ document.getElementById("upgradeInterval").addEventListener('click', function(){
         data.intervalTime = data.intervalTime - (data.pointValue.multiply(16))/50;
         if(data.intervalTime<=0){
             data.intervalTime = 1;
-            document.getElementById("upgradeInterval").innerText = "you maxxed him out :3";
+            document.getElementById("upgradeInterval").innerText = "he's going fast (max)";
             document.getElementById("upgradeInterval").style = "cursor: not-allowed; pointer-events: none;"
         } else {
             data.pointValue = data.pointValue.subtract(data.pointValue);
