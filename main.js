@@ -44,7 +44,7 @@ function deleteSave(){
     deleteSaveNum = 1
 }
 
-if(deleteSave==0){
+if(deleteSaveNum==0){
     document.onvisibilitychange = function() {
         if (document.visibilityState === 'hidden') {
             save();
