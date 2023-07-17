@@ -27,7 +27,7 @@ document.getElementById("upgradeIncrement").addEventListener('click', function()
         data.pointValue = data.pointValue.subtract(data.upgradeCost);
         data.upgradeCost = data.upgradeCost.multiply(3.141);  
         data.incrementValue = data.incrementValue.multiply(2.239482345);
-        document.getElementById("upgradeCost").innerHTML = data.upgradeCost;
+        document.getElementById("upgradeCost").innerHTML = data.upgradeCost.toPrecision(data.decimalPlaceCount);
         document.getElementById("currentPointIncrement").innerHTML = data.incrementValue.toPrecision(data.decimalPlaceCount);
     }
 })
