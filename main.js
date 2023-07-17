@@ -1,5 +1,7 @@
 import Decimal from "break_eternity.js";
 
+var deleteSave = 0
+
 if(localStorage.getItem("boredincremental")){
     var parseddata = JSON.parse(localStorage.getItem("boredincremental"))
 } 
@@ -37,14 +39,17 @@ function save(){
     localStorage.setItem("boredincremental", JSON.stringify(data));
 }
 
-document.onvisibilitychange = function() {
-    if (document.visibilityState === 'hidden') {
-        save();
-    }
-};
+if(deleteSave==0){
+    document.onvisibilitychange = function() {
+        if (document.visibilityState === 'hidden') {
+            save();
+        }
+    };
+}
 
 function deleteSave(){
     localStorage.removeItem("boredincremental")
+    deleteSave = 1
 }
 
 
