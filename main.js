@@ -1,13 +1,31 @@
 import Decimal from "break_eternity.js";
 
-var data = {
-    pointValue: new Decimal(0),
-    incrementValue: new Decimal(0.001),
-    upgradeCost: new Decimal(0.01),
-    intervalCost: new Decimal(0.001),
-    intervalTime: 500,
-    decimalPlaceCount: 6
+if(localStorage.getItem("boredincremental")){
+    var parseddata = JSON.parse(localStorage.getItem("boredincremental"))
+} 
+
+console.log(parseddata)
+
+if(parseddata){
+    var data = {
+        pointValue: new Decimal(parseddata.pointValue),
+        incrementValue: new Decimal(parseddata.incrementValue),
+        upgradeCost: new Decimal(parseddata.upgradeCost),
+        intervalCost: new Decimal(parseddata.intervalCost),
+        intervalTime: parseddata.intervalTime,
+        decimalPlaceCount: parseddata.decimalPlaceCount
+    }
+} else {
+    var data = {
+        pointValue: new Decimal(0),
+        incrementValue: new Decimal(0.001),
+        upgradeCost: new Decimal(0.01),
+        intervalCost: new Decimal(0.001),
+        intervalTime: 500,
+        decimalPlaceCount: 6
+    }
 }
+
 
 document.getElementById("currentPointIncrement").innerHTML = data.incrementValue;
 
@@ -15,6 +33,19 @@ document.getElementById("upgradeCost").innerHTML = data.upgradeCost;
 
 document.getElementById("currentPointInterval").innerHTML = data.intervalTime;
 
+function save(){
+    localStorage.setItem("boredincremental", JSON.stringify(data));
+}
+
+document.onvisibilitychange = function() {
+    if (document.visibilityState === 'hidden') {
+        save();
+    }
+};
+
+document.getElementById("saveButton").addEventListener('click', function(){
+    save();
+})
 
 function mainIncrement(){
     data.pointValue = (data.pointValue.add(data.incrementValue));
@@ -39,7 +70,7 @@ document.getElementById("upgradeInterval").addEventListener('click', function(){
         if(data.intervalTime<=0){
             data.intervalTime = 1;
             document.getElementById("upgradeInterval").innerText = "he's going fast (max)";
-            document.getElementById("upgradeInterval").style = "cursor: not-allowed; pointer-events: none;"
+            document.getElementById("upgradeInterval").style = "cursor: not-allowed; pointer-events: none;";
         } else {
             data.pointValue = data.pointValue.subtract(data.pointValue);
         }
