@@ -1,3 +1,9 @@
-# bored-incremental-test
+# bored-incremental
 
-this is a test for saving (dont play this one)
+now with saving !!
+
+my first incremental game made with break eternity
+
+it is not fun so have fun
+
+i am not very good at math :)
