@@ -1,3 +1,7 @@
+html {
+    max-width: initial;
+}
+
 #pointValue {
     overflow: hidden;
 }

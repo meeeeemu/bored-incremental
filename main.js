@@ -35,6 +35,7 @@ document.getElementById("currentPointInterval").innerHTML = data.intervalTime;
 
 function save(){
     localStorage.setItem("boredincremental", JSON.stringify(data));
+    
 }
 
 
