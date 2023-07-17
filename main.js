@@ -37,6 +37,10 @@ function save(){
     localStorage.setItem("boredincremental", JSON.stringify(data));
 }
 
+function deleteSave(){
+    localStorage.removeItem("boredincremental")
+}
+
 document.onvisibilitychange = function() {
     if (document.visibilityState === 'hidden') {
         save();
@@ -45,6 +49,10 @@ document.onvisibilitychange = function() {
 
 document.getElementById("saveButton").addEventListener('click', function(){
     save();
+})
+
+document.getElementById("deleteSave").addEventListener('click', function(){
+    deleteSave();
 })
 
 function mainIncrement(){
