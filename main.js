@@ -37,15 +37,16 @@ function save(){
     localStorage.setItem("boredincremental", JSON.stringify(data));
 }
 
-function deleteSave(){
-    localStorage.removeItem("boredincremental")
-}
-
 document.onvisibilitychange = function() {
     if (document.visibilityState === 'hidden') {
         save();
     }
 };
+
+function deleteSave(){
+    localStorage.removeItem("boredincremental")
+}
+
 
 document.getElementById("saveButton").addEventListener('click', function(){
     save();
