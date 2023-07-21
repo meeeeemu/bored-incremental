@@ -11,7 +11,7 @@
 ### changed:
   - changed some of the math, interval value is now calculated by (points*16)/50
   - increment upgrade value is now multiplied by 3.141
-  - updated to break_eternty.js for bigger point
+  - updated to break_eternity.js for bigger point
   - rewrote the save logic
   - edited css to make room for potential menus in the future
 
