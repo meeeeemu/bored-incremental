@@ -33,25 +33,53 @@ document.getElementById("upgradeCost").innerHTML = data.upgradeCost;
 
 document.getElementById("currentPointInterval").innerHTML = data.intervalTime;
 
-function save(){
+function save() {
     localStorage.setItem("boredincremental", JSON.stringify(data));
-    
+  }
+  
+function deleteSave() {
+    localStorage.removeItem("boredincremental");
 }
-
-
-document.onvisibilitychange = function() {
-    if (document.visibilityState === 'hidden') {
-        save();
+  
+function handleVisibilityChange() {
+    if (document.visibilityState === "hidden") {
+      save();
     }
-};
-
-document.getElementById("saveButton").addEventListener('click', function(){
+}
+  
+document.addEventListener("visibilitychange", handleVisibilityChange);
+  
+document.getElementById("deleteSave").addEventListener('click', function () {
+    const confirmed = window.confirm("are you shore you wanna delete it");
+    if (confirmed) {
+      alert("save is gonezo");
+      deleteSave();
+      location.reload();
+    }
+});
+  
+document.getElementById("saveButton").addEventListener('click', function () {
     save();
-})
+});
+  
+document.getElementById("deleteSave").addEventListener('click', function () {
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+});
+  
+document.getElementById("saveButton").addEventListener('click', function () {
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+});
 
 function mainIncrement(){
     data.pointValue = (data.pointValue.add(data.incrementValue));
     document.getElementById("pointValue").innerHTML = data.pointValue.toPrecision(data.decimalPlaceCount);
+    if(document.getElementById("pointCostInterval")){
+        document.getElementById("pointCostInterval").innerHTML = ((data.pointValue.multiply(16))/50).toPrecision(data.decimalPlaceCount)
+    }
+    if(data.intervalTime==1){
+        document.getElementById("upgradeInterval").innerText = "he's going fast (max)";
+        document.getElementById("upgradeInterval").style = "cursor: not-allowed; pointer-events: none;";
+    }
 }
 
 document.getElementById("upgradeIncrement").addEventListener('click', function(){
