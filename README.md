@@ -1,5 +1,7 @@
 # bored-incremental
 
+https://meeeeemu.github.io/bored-incremental/
+
 now with saving !!
 
 my first incremental game made with break eternity
