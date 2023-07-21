@@ -1,4 +1,4 @@
-# i am bored incremental
+# bored incremental
 
 # https://meeeeemu.github.io/bored-incremental/
 
