@@ -22,9 +22,7 @@
   - rebirthing (global multiplier for all points)
   - rebirth rebirthing (global multiplier for the global multiplier)
   - automatic upgrading???
-
-now with saving !!
-
+    
 my first incremental game made with break eternity
 
 it is not fun so have fun
