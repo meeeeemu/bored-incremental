@@ -93,7 +93,7 @@ function mainIncrement(){
 document.getElementById('rebirthButton').addEventListener('click', function(){
     console.log(data.pointValue.cmp(data.rebirthPrice));
     if(data.pointValue.cmp(data.rebirthPrice)==1){
-        data.rebirthMultiplier = data.rebirthMultiplier.add(0.1);
+        data.rebirthMultiplier = data.rebirthMultiplier.add(0.75);
         document.getElementById('rebirthPotential').innerHTML = data.rebirthMultiplier.toPrecision(data.decimalPlaceCount)
         data.pointValue = new Decimal(0);
         data.incrementValue = new Decimal(0.001);
@@ -117,7 +117,7 @@ document.getElementById("upgradeIncrement").addEventListener('click', function()
     console.log(data.pointValue.cmp(data.upgradeCost));
     if(data.pointValue.cmp(data.upgradeCost)==1){
         data.pointValue = data.pointValue.subtract(data.upgradeCost);
-        data.upgradeCost = (data.upgradeCost.multiply(4.141));
+        data.upgradeCost = (data.upgradeCost.multiply(3.15));
         data.incrementValue = data.incrementValue.multiply(2.482345);
         document.getElementById("upgradeCost").innerHTML = data.upgradeCost.toPrecision(data.decimalPlaceCount);
         document.getElementById("currentPointIncrement").innerHTML = data.incrementValue.toPrecision(data.decimalPlaceCount);
