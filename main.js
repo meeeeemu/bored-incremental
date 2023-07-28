@@ -117,7 +117,7 @@ document.getElementById("upgradeIncrement").addEventListener('click', function()
     console.log(data.pointValue.cmp(data.upgradeCost));
     if(data.pointValue.cmp(data.upgradeCost)==1){
         data.pointValue = data.pointValue.subtract(data.upgradeCost);
-        data.upgradeCost = (data.upgradeCost.multiply(3.141)).multiply(data.rebirthMultiplier);
+        data.upgradeCost = (data.upgradeCost.multiply(4.141));
         data.incrementValue = data.incrementValue.multiply(2.482345);
         document.getElementById("upgradeCost").innerHTML = data.upgradeCost.toPrecision(data.decimalPlaceCount);
         document.getElementById("currentPointIncrement").innerHTML = data.incrementValue.toPrecision(data.decimalPlaceCount);
